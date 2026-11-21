@@ -1,0 +1,63 @@
+# ttfamily-videos<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 検索エンジンに載らないようにする設定 -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>家族の思い出ビデオ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- パスワード入力画面 -->
+  <div id="login-screen" class="login-container">
+    <div class="login-box">
+      <div class="login-icon">🎬</div>
+      <h1>家族の思い出ビデオ</h1>
+      <p>合言葉（パスワード）を入力してください</p>
+      <form id="login-form">
+        <input type="password" id="password-input" placeholder="パスワードを入力" required>
+        <button type="submit" class="btn-primary">入る</button>
+      </form>
+      <p id="error-message" class="error-msg"></p>
+    </div>
+  </div>
+
+  <!-- メインの動画一覧画面（認証後に表示） -->
+  <div id="main-screen" class="hidden">
+    <header class="site-header">
+      <div class="header-inner">
+        <h1>🏠 家族の思い出ビデオ</h1>
+        <button id="logout-btn" class="btn-logout">ログアウト</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- 検索・並び替えエリア -->
+      <section class="controls">
+        <div class="search-sort-row">
+          <input type="text" id="search-input" placeholder="🔍 タイトルやメモで検索...">
+          <select id="sort-select">
+            <option value="newest">新しい順</option>
+            <option value="oldest">古い順</option>
+          </select>
+        </div>
+        <!-- カテゴリボタン（JSで自動生成） -->
+        <div id="category-filters" class="category-list"></div>
+      </section>
+
+      <!-- 動画一覧エリア -->
+      <section id="video-grid" class="video-grid"></section>
+      <p id="no-results" class="no-results hidden">該当する動画が見つかりませんでした。</p>
+    </main>
+
+    <footer class="site-footer">
+      <p>Family Private Video Archive</p>
+    </footer>
+  </div>
+
+  <script src="videos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
